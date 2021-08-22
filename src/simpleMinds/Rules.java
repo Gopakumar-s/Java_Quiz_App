@@ -1,8 +1,11 @@
 package simpleMinds;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
-public class Rules extends JFrame{
+public class Rules extends JFrame implements ActionListener{
+	
+	JButton b1,b2;
 	
 	Rules(String username){
 		setBounds(450,100,800,650);
@@ -33,15 +36,34 @@ public class Rules extends JFrame{
 			        );
 		add(l2);
 		
-		JButton b1=new JButton ("Back");
+		b1=new JButton ("Back");
 		b1.setBounds(250,530,100,30);
+		b1.setBackground(new Color(30,144,255));
+		b1.setForeground(Color.WHITE);
+		b1.addActionListener(this);
 		add(b1);
+		
+		b2=new JButton ("Start");
+		b2.setBounds(450,530,100,30);
+		b2.setBackground(new Color(30,144,255));
+		b2.setForeground(Color.WHITE);
+		b2.addActionListener(this);
+		add(b2);
+		
 		
 		;
 		
 		
 		setVisible(true);
 		
+	}
+	public void actionPerformed(ActionEvent ae) {
+		if (ae.getSource()== b1) {
+			this.setVisible(false);
+			new simpleMinds().setVisible(true);
+		}else if (ae.getSource()==b2) {
+			
+		}
 	}
 	
 	public static void main(String[] args) {
